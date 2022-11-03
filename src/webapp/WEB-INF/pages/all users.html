@@ -7,9 +7,7 @@
 <body>
 <div>
     <h2>All Users</h2>
-    <br>
-    <h3><a href="/new/">Add User</a></h3>
-    <br>
+
     <table>
         <tr>
             <th>ID</th>
@@ -20,26 +18,24 @@
             <th>Delete</th>
         </tr>
 
-        <tbody>
-        <tr th:each="user:${users}">
-            <td th:text="${user.getId}"></td>
-            <td th:text="${user.getName}"></td>
-            <td th:text="${user.getSurname}"></td>
-            <td th:text="${user.getSalary}"></td>
-        </tr>
+        <tr th:each="user:${user}">
+            <td th:utext="${user.getId()}"></td>
+            <td th:utext="${user.getName()}"></td>
+            <td th:utext="${user.getSurname()}"></td>
+            <td th:utext="${user.getSalary()}"></td>
             <td>
-                <form th:method="GET" th:action="@{/{id}/edit(id=${user.getId()})}" th:object="${user}">
+                <form th:method="GET" th:action="@{/edit{id}(id = ${user.getId()})}">
                     <input type="submit" value="UPDATE"/>
                 </form>
             </td>
             <td>
-                <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
+                <form th:method="DELETE" th:action="@{/{id}(id = ${user.getId()})}">
                     <input type="submit" value="DELETE"/>
                 </form>
             </td>
         </tr>
-        </tbody>
     </table>
+    <h3><a href="/new/">Add User</a></h3>
 </div>
 </body>
 </html>

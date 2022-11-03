@@ -23,18 +23,18 @@ public class UserServiceImp implements UserService {
 
     @Override
     @Transactional
-    public void updateUser(long id, User updateUser) {
+    public void updateUser(int id, User updateUser) {
         this.userDao.updateUser(id, updateUser);
     }
 
     @Override
     @Transactional
-    public void removeUser(long id) {
+    public void removeUser(int id) {
         this.userDao.removeUser(id);
     }
 
     @Override
-    public User getUserById(long id) {
+    public User getUserById(int id) {
         return this.userDao.getUserById(id);
     }
     @Override

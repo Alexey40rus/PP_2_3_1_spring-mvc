@@ -61,9 +61,10 @@ public class HibernateConfig {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
         properties.put("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
-        properties.put( "hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
+        properties.put("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
         return properties;
     }
+
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();

@@ -10,11 +10,13 @@ import java.util.List;
 
 @Service
 public class UserServiceImp implements UserService {
-     UserDao userDao;
-@Autowired
-   public UserServiceImp(UserDao userDao) {
-    this.userDao = userDao;
-}
+    UserDao userDao;
+
+    @Autowired
+    public UserServiceImp(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
     @Override
     @Transactional
     public void save(User user) {
@@ -38,6 +40,7 @@ public class UserServiceImp implements UserService {
     public User getUserById(int id) {
         return userDao.getUserById(id);
     }
+
     @Override
     @Transactional(readOnly = true)
     public List<User> getAllUsers() {

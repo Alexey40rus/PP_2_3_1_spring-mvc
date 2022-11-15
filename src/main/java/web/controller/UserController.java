@@ -11,6 +11,7 @@ import web.service.UserService;
 @RequestMapping("/")
 public class UserController {
     private final UserService userService;
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
@@ -21,11 +22,13 @@ public class UserController {
         model.addAttribute("user", userService.getAllUsers());
         return "all users";
     }
+
     @GetMapping("/new")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
         return "new";
     }
+
     @PostMapping()
     public String createUser(@ModelAttribute("user") User user) {
         userService.save(user);
